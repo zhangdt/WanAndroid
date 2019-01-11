@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="iconEditTextAttrs">
+        <attr name="icon_src" format="reference"/>
+        <attr name="type" format="string"/>
+        <attr name="edit_string" format="string"/>
+        <attr name="edit_width" format="dimension"/>
+        <attr name="edit_textsize" format="dimension"/>
+        <attr name="left_text" format="string"/>
+        <attr name="left_textsize" format="dimension"/>
+    </declare-styleable>
+</resources>

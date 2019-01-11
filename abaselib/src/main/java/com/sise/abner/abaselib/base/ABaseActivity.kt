@@ -154,7 +154,7 @@ abstract class ABaseActivity : AppCompatActivity(), LifecycleRegistryOwner {
         //            transaction.setCustomAnimations(R.anim.fragment_push_right_in, R.anim.fragment_push_left_out);
         //        }
         currentFragment?.let {
-            transaction.hide(currentFragment).show(fragment)
+//            transaction.hide(currentFragment).show(fragment)
         }
         transaction.commit()
         currentFragment = fragment
@@ -177,7 +177,7 @@ abstract class ABaseActivity : AppCompatActivity(), LifecycleRegistryOwner {
         //            transaction.setCustomAnimations(R.anim.fragment_push_right_in, R.anim.fragment_push_left_out);
         //        }
         currentFragment?.let {
-            transaction.hide(currentFragment).show(fragment)
+//            transaction.hide(currentFragment).show(fragment)
         }
         transaction.commit()
         currentFragment = fragment

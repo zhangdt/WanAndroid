@@ -2,6 +2,8 @@ package com.abner.wanandroid
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.abner.wanandroid.module.home.HomeRepository
+import com.example.abner.myapplication10.ext.setOnCustomClickListener
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -12,6 +14,11 @@ class MainActivity : AppCompatActivity() {
 
         // Example of a call to a native method
         sample_text.text = stringFromJNI()
+        sample_text.setOnCustomClickListener {
+            HomeRepository.getNavi()?.subscribe{
+
+            }
+        }
     }
 
     /**

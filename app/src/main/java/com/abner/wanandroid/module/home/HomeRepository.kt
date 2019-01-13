@@ -7,8 +7,6 @@ import com.sise.abner.abaselib.net.RxSchedulers
 import io.reactivex.Observable
 
 /**
- *
- *
  * @author zhangduntai
  * @date 2019/1/11
  */

@@ -25,12 +25,12 @@ class RetrofitClient {
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build()
-            retrofitFactory.set(config.baseUrl, retrofit)
+            retrofitFactory.put(config.baseUrl, retrofit)
         }
 
 
         fun get(baseUrl: String): Retrofit {
-            if (retrofitFactory.get(baseUrl)==null) {
+            if (retrofitFactory.get(baseUrl)!=null) {
                 return retrofitFactory.get(baseUrl)!!
             } else {
                 throw RuntimeException("初始化retrofit")

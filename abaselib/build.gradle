@@ -94,6 +94,8 @@ dependencies {
 
     api 'com.ryan.rv_gallery:rv-gallery:1.0.5'
 
+    //屏幕适配
+    implementation 'me.jessyan:autosize:1.1.2'
 
 
 }

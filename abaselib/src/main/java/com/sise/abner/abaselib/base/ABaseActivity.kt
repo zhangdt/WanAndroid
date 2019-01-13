@@ -130,7 +130,9 @@ abstract class ABaseActivity : AppCompatActivity(), LifecycleRegistryOwner {
 
 
     //布局中Fragment的ID
-    protected abstract fun getFragmentContentId(): Int
+    protected fun getFragmentContentId(): Int{
+        return 0
+    }
 
     protected abstract fun initFragment()
 

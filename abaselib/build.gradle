@@ -41,9 +41,7 @@ dependencies {
     })
     api "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     //日记库
-    api 'com.orhanobut:logger:1.15'
-
-
+    api 'com.orhanobut:logger:2.2.0'
 
     def lifecycle_version = "1.1.1"
     //google 的组件库

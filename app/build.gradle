@@ -18,11 +18,22 @@ android {
                 cppFlags ""
             }
         }
+
+
+
+
+
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'BASE_URL', "\"" + BASE_URL + "\""
+            buildConfigField 'boolean', 'ISDEBUG', 'false'
+        }
+        debug {
+            buildConfigField 'String', 'BASE_URL', "\"" + BASE_URL + "\""
+            buildConfigField 'boolean', 'ISDEBUG',  'true'
         }
     }
     externalNativeBuild {

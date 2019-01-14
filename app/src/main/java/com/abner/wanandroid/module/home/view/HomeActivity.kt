@@ -68,7 +68,10 @@ class HomeActivity : BaseActivity() {
 
     private fun setupViewPager(viewPager: ViewPager) {
         var fragments = ArrayList<Fragment>()
-        fragments.add(ArticleFragment())
+        fragments.add(ArticleFragment().setOnDrawerListener {
+            Logger.i("setOnDrawerListener:%s",it)
+            home_vp.setDraw(it)
+        })
         fragments.add(VideoFragment())
         fragments.add(MusicFragment())
         fragments.add(PastimeFragment())

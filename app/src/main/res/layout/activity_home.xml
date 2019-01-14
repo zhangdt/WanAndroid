@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v4.view.ViewPager
+    <com.abner.wanandroid.view.MyViewPager
         android:id="@+id/home_vp"
         android:layout_width="match_parent"
         android:layout_height="0dp"

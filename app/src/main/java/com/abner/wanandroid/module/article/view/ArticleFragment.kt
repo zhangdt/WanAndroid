@@ -2,6 +2,7 @@ package com.abner.wanandroid.module.article.view
 
 import android.os.Bundle
 import android.support.v4.widget.DrawerLayout
+import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.abner.wanandroid.R
 import com.abner.wanandroid.base.BaseFragment
@@ -27,7 +28,7 @@ class ArticleFragment: BaseFragment() {
     }
 
     override fun initView(args: Bundle?) {
-        article_dl.addDrawerListener(object :DrawerLayout.DrawerListener{
+        article_dl.addDrawerListener(object : DrawerLayout.DrawerListener{
             override fun onDrawerStateChanged(newState: Int) {
             }
 
@@ -42,6 +43,7 @@ class ArticleFragment: BaseFragment() {
                 _onDrawerListener(true)
             }
         })
+        article_rv.layoutManager = LinearLayoutManager(mContext)
     }
 
 

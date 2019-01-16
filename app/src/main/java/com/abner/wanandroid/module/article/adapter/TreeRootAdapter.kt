@@ -6,6 +6,8 @@ import com.chad.library.adapter.base.BaseMultiItemQuickAdapter
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.chad.library.adapter.base.entity.MultiItemEntity
+import com.facebook.stetho.inspector.elements.NodeType
+import com.squareup.haha.perflib.RootType
 
 
 /**
@@ -15,17 +17,20 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
  * @date 2019/1/15
  */
 class TreeRootAdapter : BaseMultiItemQuickAdapter<MultiItemEntity, BaseViewHolder>{
-
+    val TYPE_ROOT = 0
+    val TYPE_NODE = 1
 
     constructor(data:List<MultiItemEntity>) : super(data) {
-        addItemType(0, R.layout.item_tree)
-        addItemType(1, R.layout.item_tree)
+        addItemType(TYPE_ROOT, R.layout.item_tree)
+        addItemType(TYPE_NODE, R.layout.item_tree)
     }
     override fun convert(helper: BaseViewHolder?, item: MultiItemEntity?) {
         when(helper?.itemViewType){
-            0->{
+            TYPE_ROOT->{
+
             }
-            1->{
+            TYPE_NODE->{
+
             }
         }
 

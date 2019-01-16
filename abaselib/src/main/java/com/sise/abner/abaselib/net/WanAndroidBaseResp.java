@@ -1,4 +1,4 @@
-package com.abner.wanandroid.bean;
+package com.sise.abner.abaselib.net;
 
 /**
  * @author zhangduntai

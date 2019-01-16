@@ -1,7 +1,8 @@
 package com.abner.wanandroid.module.article.api
 
-import com.abner.wanandroid.bean.WanAndroidBaseResp
+import com.sise.abner.abaselib.net.WanAndroidBaseResp
 import com.abner.wanandroid.module.article.bean.TreeNode
+import com.abner.wanandroid.module.article.bean.TreeRoot
 import io.reactivex.Observable
 import retrofit2.http.GET
 
@@ -13,5 +14,5 @@ import retrofit2.http.GET
  */
 interface ArticleApi {
     @GET("tree/json")
-    fun getTree():Observable<WanAndroidBaseResp<List<TreeNode>>>
+    fun getTree():Observable<WanAndroidBaseResp<List<TreeRoot>>>
 }

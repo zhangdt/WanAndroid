@@ -39,23 +39,20 @@ public class MyViewPager extends ViewPager {
         boolean intercepted = true;
         int x = (int) ev.getX();
         int y = (int) ev.getY();
-        if (getCurrentItem() == 0) {
+        if (getCurrentItem() == 0) { //在第一页拦截
             switch (ev.getAction()) {
                 case MotionEvent.ACTION_DOWN: {
-                    Logger.i("Action_down:%s", x);
                     intercepted = true;
                     mInitialMotionX = x;
                     mInitialMotionY = y;
                     break;
                 }
                 case MotionEvent.ACTION_MOVE: {
-                    Logger.i("Action_move:%s", x);
-                    Logger.i("Action_move mInitialMotionX:%s", mInitialMotionX);
-                    if (isDraw) {
+                    if (isDraw) { //打开状态必拦截
                         intercepted = false;
-                    } else if (x < mInitialMotionX) {
+                    } else if (x < mInitialMotionX) {  //非打开状态向左划  不拦截
                         intercepted = true;
-                    } else {
+                    } else { // 其余状态拦截
                         intercepted = false;
                     }
                     break;
@@ -68,7 +65,6 @@ public class MyViewPager extends ViewPager {
             }
 
         }
-        Logger.i("interceptd:%s", intercepted);
         if (!intercepted) return intercepted;
         return super.onInterceptTouchEvent(ev);
     }

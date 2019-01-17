@@ -11,6 +11,7 @@ import com.abner.wanandroid.base.BaseFragment
 import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.fragment_article.*
 import android.support.v7.widget.GridLayoutManager
+import com.abner.wanandroid.module.article.adapter.ArticleAdapter
 import com.abner.wanandroid.module.article.adapter.TreeRootAdapter
 import com.abner.wanandroid.module.article.bean.TreeRoot
 import com.abner.wanandroid.module.article.vm.ArticleVm
@@ -26,7 +27,8 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
 class ArticleFragment : BaseFragment() {
 
     var _onDrawerListener: (Boolean) -> Unit = {}
-    lateinit var adapter: TreeRootAdapter
+    lateinit var treeAdapter: TreeRootAdapter
+    lateinit var articleAdapter:ArticleAdapter
     lateinit var articleVm: ArticleVm
 
     override fun onVisible() {
@@ -56,26 +58,36 @@ class ArticleFragment : BaseFragment() {
         })
 
         var manager = GridLayoutManager(mContext, 3)
-        adapter = TreeRootAdapter(ArrayList())
+        treeAdapter = TreeRootAdapter(ArrayList())
         manager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                return if (adapter.getItemViewType(position) == adapter.TYPE_NODE) 1 else manager.spanCount
+                return if (treeAdapter.getItemViewType(position) == treeAdapter.TYPE_NODE) 1 else manager.spanCount
             }
         }
-        article_rv.adapter = adapter
+        article_rv.adapter = treeAdapter
         article_rv.layoutManager = manager
 
         articleVm.getTree().apply {
             treeRoots.observe(this@ArticleFragment, Observer {
                 Logger.d(it)
                 if (it != null) {
-                    adapter.setNewData(transformTreeData(it))
+                    treeAdapter.setNewData(transformTreeData(it))
                 }
             })
         }
 
-        adapter.setNodeClickListener {
+        articleAdapter = ArticleAdapter()
 
+        rv_article.layoutManager  = LinearLayoutManager(context)
+        rv_article.adapter = articleAdapter
+
+        treeAdapter.setNodeClickListener {
+            articleVm.getArticlesById(it).apply {
+                articles.observe(this@ArticleFragment, Observer {
+                    article_dl.closeDrawers()
+                    articleAdapter.setNewData(it?.datas)
+                })
+            }
         }
 
 

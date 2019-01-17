@@ -15,15 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_article"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:gravity="center"
-                android:text="@string/navigation_article"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
+            android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/article_rv"

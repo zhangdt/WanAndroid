@@ -23,5 +23,6 @@ class ArticleRepository {
                     .compose(RxSchedulers.responseTransform())
 
         }
+
     }
 }

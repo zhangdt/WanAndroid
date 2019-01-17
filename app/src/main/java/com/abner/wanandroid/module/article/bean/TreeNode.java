@@ -1,12 +1,14 @@
 package com.abner.wanandroid.module.article.bean;
 
+import com.chad.library.adapter.base.entity.MultiItemEntity;
+
 import java.util.List;
 
 /**
  * @author zhangduntai
  * @date 2019/1/15
  */
-public class TreeNode {
+public class TreeNode implements MultiItemEntity {
 
 
     /**
@@ -91,5 +93,10 @@ public class TreeNode {
 
     public void setChildren(List<?> children) {
         this.children = children;
+    }
+
+    @Override
+    public int getItemType() {
+        return 1;
     }
 }

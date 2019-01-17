@@ -1,6 +1,7 @@
 package com.abner.wanandroid.module.article.bean;
 
 import com.chad.library.adapter.base.entity.AbstractExpandableItem;
+import com.chad.library.adapter.base.entity.MultiItemEntity;
 
 import java.util.List;
 
@@ -8,7 +9,7 @@ import java.util.List;
  * @author zhangduntai
  * @date 2019/1/15
  */
-public class TreeRoot {
+public class TreeRoot extends AbstractExpandableItem<TreeNode> implements MultiItemEntity {
 
 
     /**
@@ -93,5 +94,15 @@ public class TreeRoot {
 
     public void setVisible(int visible) {
         this.visible = visible;
+    }
+
+    @Override
+    public int getLevel() {
+        return 0;
+    }
+
+    @Override
+    public int getItemType() {
+        return 0;
     }
 }

@@ -13,6 +13,10 @@ import retrofit2.http.GET
  * @date 2019/1/15
  */
 interface ArticleApi {
+
+    /**
+     * 获取知识体系树
+     */
     @GET("tree/json")
     fun getTree():Observable<WanAndroidBaseResp<List<TreeRoot>>>
 }

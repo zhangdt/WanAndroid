@@ -30,7 +30,15 @@ class ArticleRepository {
         {
             return RetrofitClient.get(BuildConfig.BASE_URL)
                     .create(ArticleApi::class.java)
-                    .getArtcleById(page,cid)
+                    .getArticleById(page,cid)
+                    .compose(RxSchedulers.responseTransform())
+        }
+
+        fun  getAllArticle(page:Int):Observable<PageResp<Article>>
+        {
+            return RetrofitClient.get(BuildConfig.BASE_URL)
+                    .create(ArticleApi::class.java)
+                    .getAllArticle(page)
                     .compose(RxSchedulers.responseTransform())
         }
 

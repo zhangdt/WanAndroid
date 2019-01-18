@@ -78,6 +78,7 @@ class HomeActivity : BaseActivity() {
         fragments.add(MeFragment())
         val adapter = HomePagerAdapter(fragments,supportFragmentManager)
         viewPager.adapter = adapter
+        viewPager.offscreenPageLimit = 5
     }
 
 }

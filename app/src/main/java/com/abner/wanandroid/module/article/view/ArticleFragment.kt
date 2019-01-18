@@ -4,6 +4,8 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.widget.DrawerLayout
+import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.abner.wanandroid.R
@@ -16,6 +18,7 @@ import com.abner.wanandroid.module.article.adapter.TreeRootAdapter
 import com.abner.wanandroid.module.article.bean.TreeRoot
 import com.abner.wanandroid.module.article.vm.ArticleVm
 import com.chad.library.adapter.base.entity.MultiItemEntity
+import com.abner.wanandroid.R.id.toolbar
 
 
 /**
@@ -28,8 +31,9 @@ class ArticleFragment : BaseFragment() {
 
     var _onDrawerListener: (Boolean) -> Unit = {}
     lateinit var treeAdapter: TreeRootAdapter
-    lateinit var articleAdapter:ArticleAdapter
+    lateinit var articleAdapter: ArticleAdapter
     lateinit var articleVm: ArticleVm
+    lateinit var mDrawerToggle: ActionBarDrawerToggle
 
     override fun onVisible() {
         Logger.i("onVisible")
@@ -41,6 +45,21 @@ class ArticleFragment : BaseFragment() {
     }
 
     override fun initView(args: Bundle?) {
+
+        var activity = activity as AppCompatActivity
+        activity.setSupportActionBar(toolbar)
+
+        activity.supportActionBar?.run {
+            setDisplayHomeAsUpEnabled(true)
+            setHomeButtonEnabled(true)
+        }
+
+        //抽屉和按钮的结合  三杆变箭头
+        mDrawerToggle = ActionBarDrawerToggle(activity, article_dl, toolbar, R.string.drawer_open, R.string.drawer_close)
+        mDrawerToggle.syncState()
+        article_dl.setDrawerListener(mDrawerToggle)
+
+
         article_dl.addDrawerListener(object : DrawerLayout.DrawerListener {
             override fun onDrawerStateChanged(newState: Int) {
             }
@@ -57,7 +76,7 @@ class ArticleFragment : BaseFragment() {
             }
         })
 
-        var manager = GridLayoutManager(mContext, 3)
+        var manager = GridLayoutManager(mContext, 2)
         treeAdapter = TreeRootAdapter(ArrayList())
         manager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
@@ -67,42 +86,38 @@ class ArticleFragment : BaseFragment() {
         article_rv.adapter = treeAdapter
         article_rv.layoutManager = manager
 
-        articleVm.getTree().apply {
-            treeRoots.observe(this@ArticleFragment, Observer {
-                Logger.d(it)
-                if (it != null) {
-                    treeAdapter.setNewData(transformTreeData(it))
-                }
-            })
-        }
+
 
         articleAdapter = ArticleAdapter()
 
-        rv_article.layoutManager  = LinearLayoutManager(context)
+        rv_article.layoutManager = LinearLayoutManager(context)
         rv_article.adapter = articleAdapter
 
-        treeAdapter.setNodeClickListener {
-            articleVm.getArticlesById(it).apply {
-                articles.observe(this@ArticleFragment, Observer {
-                    article_dl.closeDrawers()
-                    articleAdapter.setNewData(it?.datas)
-                })
-            }
+        treeAdapter.setNodeClickListener { id, name ->
+            toolbar.title = name
+            articleVm.getArticlesById(id)
+
         }
 
+        toolbar.title = "最新"
+
+
+        articleVm.getTree()
+        articleVm.getArticlesById(0)
 
     }
 
     /**
      * 对数据进行变化
      */
-    fun transformTreeData(treeRoots:List<TreeRoot>):List<MultiItemEntity>{
-        var data  = ArrayList<MultiItemEntity>()
-        for(root in treeRoots)
-        {
-            var treeRoot:TreeRoot = root;
-            for (node in treeRoot.children)
-            {
+    fun transformTreeData(treeRoots: List<TreeRoot>): List<MultiItemEntity> {
+        var data = ArrayList<MultiItemEntity>()
+        var treeRoot = TreeRoot()
+        treeRoot.name = "最新"
+        data.add(treeRoot)
+        for (root in treeRoots) {
+            var treeRoot: TreeRoot = root
+            for (node in treeRoot.children) {
                 treeRoot.addSubItem(node)
             }
             data.add(treeRoot)
@@ -115,6 +130,19 @@ class ArticleFragment : BaseFragment() {
         articleVm = ViewModelProviders
                 .of(this@ArticleFragment)
                 .get(ArticleVm::class.java)
+                .apply {
+                    treeRoots.observe(this@ArticleFragment, Observer {
+                        Logger.d(it)
+                        if (it != null) {
+                            treeAdapter.setNewData(transformTreeData(it))
+                        }
+                    })
+
+                    articles.observe(this@ArticleFragment, Observer {
+                        article_dl.closeDrawers()
+                        articleAdapter.setNewData(it?.datas)
+                    })
+                }
     }
 
     override fun getLayout(): Int {

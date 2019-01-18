@@ -25,6 +25,18 @@ interface ArticleApi {
     fun getTree():Observable<WanAndroidBaseResp<List<TreeRoot>>>
 
 
+    /**
+     * 获取id对应的文章列表
+     */
     @GET("article/list/{page}/json")
-    fun getArtcleById( @Path("page") claimId:Int,@Query("cid") cid:Int):Observable<WanAndroidBaseResp<PageResp<Article>>>
+    fun getArticleById( @Path("page") page:Int,@Query("cid") cid:Int):Observable<WanAndroidBaseResp<PageResp<Article>>>
+
+    /**
+     * 获取最新的文章
+     */
+
+    @GET("article/list/{page}/json")
+    fun getAllArticle(@Path("page") page:Int ):Observable<WanAndroidBaseResp<PageResp<Article>>>
+
+
 }

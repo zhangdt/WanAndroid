@@ -32,8 +32,31 @@ class ArticleVm(application: Application) : ABaseViewModel(application) {
         return this
     }
 
+
     fun getArticlesById(cid: Int): ArticleVm {
-        ArticleRepository.getArticlesById(cid, 0).subscribe(
+        if (cid==0)  //当id == 0 时 用最新的接口
+        {
+            getAllArticle()
+        }
+        else {
+            ArticleRepository.getArticlesById(cid, 0).subscribe(
+                    {
+                        Logger.d(it)
+//                    Logger.d(it.datas[0].title)
+                        articles.value = it
+                    },
+                    {
+                        Logger.e(it, it.message!!)
+                    }
+            )?.let {
+                addSubscription(it)
+            }
+        }
+        return this
+    }
+
+    private fun getAllArticle() {
+        ArticleRepository.getAllArticle(0).subscribe(
                 {
                     Logger.d(it)
 //                    Logger.d(it.datas[0].title)
@@ -45,7 +68,6 @@ class ArticleVm(application: Application) : ABaseViewModel(application) {
         )?.let {
             addSubscription(it)
         }
-        return this
     }
 
 }

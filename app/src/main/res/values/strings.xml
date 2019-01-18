@@ -6,4 +6,8 @@
     <string name="navigation_video">视频</string>
     <string name="navigation_pastime">娱乐</string>
     <string name="navigation_me">我的</string>
+
+    <!--DrawerToggle-->
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
 </resources>

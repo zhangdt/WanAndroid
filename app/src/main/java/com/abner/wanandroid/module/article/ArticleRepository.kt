@@ -28,6 +28,10 @@ class ArticleRepository {
 
         fun getArticlesById(cid:Int,page:Int):Observable<PageResp<Article>>
         {
+            if (cid == 0)
+            {
+                return getAllArticle(page)
+            }
             return RetrofitClient.get(BuildConfig.BASE_URL)
                     .create(ArticleApi::class.java)
                     .getArticleById(page,cid)

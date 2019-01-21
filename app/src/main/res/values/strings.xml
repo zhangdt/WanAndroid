@@ -10,4 +10,10 @@
     <!--DrawerToggle-->
     <string name="drawer_open">open</string>
     <string name="drawer_close">close</string>
+
+    <!--文章列表-->
+    <string name="article_author">作者</string>
+    <string name="article_tag">分类</string>
+    <string name="article_time">时间</string>
+
 </resources>

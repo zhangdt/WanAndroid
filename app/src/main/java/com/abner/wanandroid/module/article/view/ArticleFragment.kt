@@ -35,6 +35,12 @@ class ArticleFragment : BaseFragment() {
     lateinit var articleVm: ArticleVm
     lateinit var mDrawerToggle: ActionBarDrawerToggle
 
+
+    var mCid = 0
+    var isErr = false
+    private var isOver = false
+
+
     override fun onVisible() {
         Logger.i("onVisible")
     }
@@ -89,22 +95,33 @@ class ArticleFragment : BaseFragment() {
 
 
         articleAdapter = ArticleAdapter()
-
         rv_article.layoutManager = LinearLayoutManager(context)
         rv_article.adapter = articleAdapter
 
         treeAdapter.setNodeClickListener { id, name ->
             toolbar.title = name
-            articleVm.getArticlesById(id)
-
+            mCid = id
+            articleVm.getArticlesById(mCid)
+            article_dl.closeDrawers()
+            isOver = false
         }
 
         toolbar.title = "最新"
 
 
         articleVm.getTree()
-        articleVm.getArticlesById(0)
+        articleVm.getArticlesById(mCid)
 
+        articleAdapter.setOnLoadMoreListener {
+            rv_article.postDelayed({
+                when {
+                    isOver -> articleAdapter.loadMoreEnd()
+                    else -> {
+                        articleVm.getArticlesById(mCid)
+                    }
+                }
+            },500)
+        }
     }
 
     /**
@@ -113,7 +130,7 @@ class ArticleFragment : BaseFragment() {
     fun transformTreeData(treeRoots: List<TreeRoot>): List<MultiItemEntity> {
         var data = ArrayList<MultiItemEntity>()
         var treeRoot = TreeRoot()
-        treeRoot.name = "最新"
+        treeRoot.name = "最新"  //在第一位加上最新
         data.add(treeRoot)
         for (root in treeRoots) {
             var treeRoot: TreeRoot = root
@@ -139,8 +156,22 @@ class ArticleFragment : BaseFragment() {
                     })
 
                     articles.observe(this@ArticleFragment, Observer {
-                        article_dl.closeDrawers()
-                        articleAdapter.setNewData(it?.datas)
+                        isErr = false
+                        articleAdapter.setNewData(it?.datas!!)
+                    })
+
+                    addArticles.observe(this@ArticleFragment, Observer {
+                        isErr = false
+                        articleAdapter.addData(it?.datas!!)
+                        articleAdapter.loadMoreComplete()
+                    })
+
+                    isError.observe(this@ArticleFragment, Observer {
+                        articleAdapter.loadMoreFail()
+                    })
+
+                    isOver.observe(this@ArticleFragment, Observer {
+                        this@ArticleFragment.isOver = it!!
                     })
                 }
     }

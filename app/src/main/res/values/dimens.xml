@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--字体的大小-->
+    <dimen name="main_text">42px</dimen>
+    <dimen name="assist_text">36px</dimen>
+</resources>

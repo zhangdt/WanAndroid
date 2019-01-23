@@ -12,5 +12,7 @@ import com.chad.library.adapter.base.BaseViewHolder
 class ArticleAdapter:BaseQuickAdapter<Article,BaseViewHolder>(R.layout.item_article) {
     override fun convert(helper: BaseViewHolder?, item: Article?) {
         helper?.setText(R.id.tv_title,item?.title)
+                ?.setText(R.id.tv_author,item?.author)
+                ?.setText(R.id.tv_time,item?.niceDate)
     }
 }

@@ -1,8 +1,8 @@
 package com.sise.abner.abaselib.View
 
 import android.content.Context
-import android.support.v4.view.ViewPager
 import android.util.AttributeSet
+import androidx.viewpager.widget.ViewPager
 import com.sise.abner.abaselib.bean.CalendarMonth
 import com.sise.abner.abaselib.util.CalendarUtil
 import java.util.*
@@ -65,7 +65,7 @@ class CalendarView : ViewPager {
         }
         calendarAdapter = CalendarAdapter(mConetxt).setData(months,views)
         adapter =calendarAdapter
-        setOnPageChangeListener(object:OnPageChangeListener
+        setOnPageChangeListener(object: OnPageChangeListener
         {
             override fun onPageScrollStateChanged(state: Int) {
 

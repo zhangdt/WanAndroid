@@ -21,7 +21,7 @@ import java.security.MessageDigest;
 public class GlideGsTransform extends BitmapTransformation {
     private  Context mContext;
     public GlideGsTransform(Context context) {
-        super(context);
+        super();
         mContext = context;
 
     }

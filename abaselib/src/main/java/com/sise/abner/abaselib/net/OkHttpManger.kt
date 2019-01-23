@@ -2,7 +2,6 @@ package com.sise.abner.abaselib.net
 
 import android.os.RecoverySystem
 import android.util.Log
-import com.facebook.stetho.okhttp3.StethoInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

@@ -1,8 +1,8 @@
 package com.abner.wanandroid.module.article.vm
 
 import android.app.Application
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
+import androidx.lifecycle.MutableLiveData
+
 import com.abner.wanandroid.bean.Article
 import com.abner.wanandroid.bean.PageResp
 import com.abner.wanandroid.module.article.ArticleRepository

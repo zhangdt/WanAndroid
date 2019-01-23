@@ -6,15 +6,25 @@ ext {
     buildToolsVersion = '28.0.3'
     supportLibVersion = "27.1.1"
     androidSupport = "com.android.support"
+    androidXVersion = '1.0.0'
 
 
 
     dependencies = [
             // support
-            supportAppCompat   : "$androidSupport:appcompat-v7:$supportLibVersion",
-            supportDesign      : "$androidSupport:design:$supportLibVersion",
-            supportRecyclerview: "$androidSupport:recyclerview-v7:$supportLibVersion",
-            supportCardView    : "$androidSupport:cardview-v7:$supportLibVersion",
-            supportMultidex    : "$androidSupport:multidex:1.0.1"
+            supportAppCompat    : "$androidSupport:appcompat-v7:$supportLibVersion",
+            supportDesign       : "com.google.android.material:material:1.0.0",
+            supportRecyclerview : "$androidSupport:recyclerview-v7:$supportLibVersion",
+            supportCardView     : "$androidSupport:cardview-v7:$supportLibVersion",
+            supportMultidex     : "$androidSupport:multidex:1.0.1",
+
+            androidXRecyclerView: "androidx.recyclerview:recyclerview:$androidXVersion",
+            androidXAppCompat   : "androidx.appcompat:appcompat:${androidXVersion}",
+            androidXMaterial    : "com.google.android.material:material:${androidXVersion}",
+            androidXCardView    : "androidx.cardview:cardview:${androidXVersion}",
+            androidXKTX         : "androidx.core:core-ktx:${androidXVersion}",
+            androidXMultidex    : 'androidx.multidex:multidex:2.0.0',
+            androidXCL          : 'androidx.constraintlayout:constraintlayout:1.1.2'
+
     ]
 }

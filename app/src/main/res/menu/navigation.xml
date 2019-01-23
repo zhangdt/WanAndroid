@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/item_article"
         android:icon="@mipmap/ic_launcher"
-        android:title="@string/navigation_article" />
+        android:title="@string/navigation_article"
+        app:showAsAction="always|withText"/>
     <item
         android:id="@+id/item_video"
         android:icon="@mipmap/ic_launcher"
-        android:title="@string/navigation_video" />
+        android:title="@string/navigation_video"
+        app:showAsAction="always|withText"/>
     <item
         android:id="@+id/item_music"
         android:icon="@mipmap/ic_launcher"
-        android:title="@string/navigation_music" />
+        android:title="@string/navigation_music"
+        app:showAsAction="always|withText"/>
     <item
         android:id="@+id/item_pastime"
         android:icon="@mipmap/ic_launcher"
-        android:title="@string/navigation_pastime" />
+        android:title="@string/navigation_pastime"
+        app:showAsAction="always|withText"/>
     <item
         android:id="@+id/item_person"
         android:icon="@mipmap/ic_launcher"
-        android:title="@string/navigation_me" />
+        android:title="@string/navigation_me"
+        app:showAsAction="always|withText"/>
 
 </menu>

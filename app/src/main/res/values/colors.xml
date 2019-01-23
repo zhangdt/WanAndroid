@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#007A87</color>
+    <color name="colorPrimaryDark">#007A87</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="main_green">#007A87</color>
+    <color name="light_green">#7CBAC0</color>
+
     <!--底部导航栏颜色-->
     <color name="gray">#f7f7f7</color>
+    <!--主要背景色-->
+    <color name="white">#ffffff</color>
     <!--分割线颜色-->
     <color name="line">#19000000</color>
 

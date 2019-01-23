@@ -1,7 +1,8 @@
 package com.abner.wanandroid
 
-import android.support.v7.app.AppCompatActivity
+
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.abner.wanandroid.module.home.HomeRepository
 import com.example.abner.myapplication10.ext.setOnCustomClickListener
 import kotlinx.android.synthetic.main.activity_main.*

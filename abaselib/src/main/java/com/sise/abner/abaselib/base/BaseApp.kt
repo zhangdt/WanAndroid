@@ -1,7 +1,8 @@
 package com.sise.abner.abaselib.base
 
 import android.app.Application
-import com.facebook.stetho.Stetho
+import androidx.multidex.MultiDex
+
 
 //import com.sise.abner.abaselib.SDKBaseLib.application
 
@@ -25,6 +26,7 @@ open class BaseApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+        MultiDex.install(this)
         mInstance = this
     }
 

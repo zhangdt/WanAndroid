@@ -2,21 +2,22 @@ package com.abner.wanandroid.module.home.view
 
 import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
-import android.support.v4.app.Fragment
-import android.support.v4.view.PagerAdapter
-import android.support.v4.view.ViewPager
+import androidx.annotation.RequiresApi
+
+import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import com.abner.wanandroid.R
 import com.abner.wanandroid.base.BaseActivity
 import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_home.*
-import com.abner.wanandroid.base.BaseFragment
 import com.abner.wanandroid.module.article.view.ArticleFragment
 import com.abner.wanandroid.module.home.adapter.HomePagerAdapter
 import com.abner.wanandroid.module.music.view.MusicFragment
 import com.abner.wanandroid.module.pastime.view.PastimeFragment
 import com.abner.wanandroid.module.person.view.MeFragment
 import com.abner.wanandroid.module.video.view.VideoFragment
+import com.google.android.material.bottomnavigation.LabelVisibilityMode.LABEL_VISIBILITY_LABELED
+import com.google.android.material.bottomnavigation.LabelVisibilityMode.LABEL_VISIBILITY_SELECTED
 import com.sise.abner.abaselib.util.BottomNavigationViewHelper
 
 
@@ -28,7 +29,6 @@ class HomeActivity : BaseActivity() {
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     override fun initView(savedInstanceState: Bundle?) {
 
-        BottomNavigationViewHelper.disableShiftMode(home_bnv)
         home_bnv.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.item_article -> home_vp.currentItem = 0
@@ -39,6 +39,7 @@ class HomeActivity : BaseActivity() {
             }
             return@setOnNavigationItemSelectedListener true
         }
+        home_bnv.labelVisibilityMode = LABEL_VISIBILITY_LABELED
         setupViewPager(home_vp)
         home_vp.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {

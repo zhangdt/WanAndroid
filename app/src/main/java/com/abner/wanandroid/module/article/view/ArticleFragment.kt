@@ -1,24 +1,24 @@
 package com.abner.wanandroid.module.article.view
 
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
+
 import android.os.Bundle
-import android.support.v4.widget.DrawerLayout
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.abner.wanandroid.R
 import com.abner.wanandroid.base.BaseFragment
-import com.orhanobut.logger.Logger
-import kotlinx.android.synthetic.main.fragment_article.*
-import android.support.v7.widget.GridLayoutManager
 import com.abner.wanandroid.module.article.adapter.ArticleAdapter
 import com.abner.wanandroid.module.article.adapter.TreeRootAdapter
 import com.abner.wanandroid.module.article.bean.TreeRoot
 import com.abner.wanandroid.module.article.vm.ArticleVm
 import com.chad.library.adapter.base.entity.MultiItemEntity
-import com.abner.wanandroid.R.id.toolbar
+import com.orhanobut.logger.Logger
+import kotlinx.android.synthetic.main.fragment_article.*
 
 
 /**
@@ -121,6 +121,9 @@ class ArticleFragment : BaseFragment() {
                     }
                 }
             },500)
+        }
+        articleAdapter.setOnItemClickListener { adapter, view, position ->
+            Logger.i("articleAdapter onClick$position")
         }
     }
 

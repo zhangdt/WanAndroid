@@ -1,4 +1,4 @@
-package com.sise.abner.abaselib.net;
+package com.sise.abner.abaselib.net.base;
 
 /**
  * @author zhangduntai

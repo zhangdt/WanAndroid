@@ -2,8 +2,7 @@ package com.abner.wanandroid.module.article.api
 
 import com.abner.wanandroid.bean.Article
 import com.abner.wanandroid.bean.PageResp
-import com.sise.abner.abaselib.net.WanAndroidBaseResp
-import com.abner.wanandroid.module.article.bean.TreeNode
+import com.sise.abner.abaselib.net.base.WanAndroidBaseResp
 import com.abner.wanandroid.module.article.bean.TreeRoot
 import io.reactivex.Observable
 import retrofit2.http.GET

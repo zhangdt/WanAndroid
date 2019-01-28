@@ -107,6 +107,9 @@ dependencies {
     //lottie
     api 'com.airbnb.android:lottie:3.0.0-beta1'
 
+    //第三方webview
+    api 'com.just.agentweb:agentweb:4.0.2'
+
 
 }
 repositories {

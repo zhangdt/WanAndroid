@@ -1,5 +1,7 @@
 package com.sise.abner.abaselib.net;
 
+import com.sise.abner.abaselib.net.base.WanAndroidBaseResp;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;

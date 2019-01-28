@@ -25,7 +25,7 @@ class RetrofitClient {
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build()
-            retrofitFactory.put(config.baseUrl, retrofit)
+            retrofitFactory[config.baseUrl] = retrofit
         }
 
 

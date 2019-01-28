@@ -13,12 +13,19 @@ import com.sise.abner.abaselib.util.LoggingUtil
 class App: BaseApp() {
     override fun onCreate() {
         super.onCreate()
-        var config = RetrofitClient.Config().init{
+        var wanAndroidConfig = RetrofitClient.Config().init{
             baseUrl = BuildConfig.BASE_URL
             timeOut = 3000
             enableLog = true
         }
-        RetrofitClient.init(config)
+        var gankConfig = RetrofitClient.Config().init{
+            baseUrl = BuildConfig.GANK_URL
+            timeOut = 3000
+            enableLog = true
+        }
+        RetrofitClient.init(wanAndroidConfig)
+        RetrofitClient.init(gankConfig)
+
         LoggingUtil.init(BuildConfig.ISDEBUG)
     }
 }

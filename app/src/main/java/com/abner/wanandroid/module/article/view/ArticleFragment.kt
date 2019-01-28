@@ -3,6 +3,7 @@ package com.abner.wanandroid.module.article.view
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -19,6 +20,11 @@ import com.abner.wanandroid.module.article.vm.ArticleVm
 import com.chad.library.adapter.base.entity.MultiItemEntity
 import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.fragment_article.*
+import android.widget.LinearLayout
+import com.abner.wanandroid.bean.Article
+import com.just.agentweb.AgentWeb
+
+
 
 
 /**
@@ -99,11 +105,13 @@ class ArticleFragment : BaseFragment() {
         rv_article.adapter = articleAdapter
 
         treeAdapter.setNodeClickListener { id, name ->
+
             toolbar.title = name
             mCid = id
             articleVm.getArticlesById(mCid)
             article_dl.closeDrawers()
             isOver = false
+            rv_article.scrollToPosition(0)
         }
 
         toolbar.title = "最新"
@@ -123,7 +131,11 @@ class ArticleFragment : BaseFragment() {
             },500)
         }
         articleAdapter.setOnItemClickListener { adapter, view, position ->
+            var item = adapter.data[position] as Article
             Logger.i("articleAdapter onClick$position")
+            ArticleContentActivity.start(item.link,mContext)
+
+
         }
     }
 

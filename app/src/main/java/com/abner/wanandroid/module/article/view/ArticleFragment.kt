@@ -95,14 +95,15 @@ class ArticleFragment : BaseFragment() {
                 return if (treeAdapter.getItemViewType(position) == treeAdapter.TYPE_NODE) 1 else manager.spanCount
             }
         }
-        article_rv.adapter = treeAdapter
-        article_rv.layoutManager = manager
+        rv_root.adapter = treeAdapter
+        rv_root.layoutManager = manager
 
 
 
         articleAdapter = ArticleAdapter()
         rv_article.layoutManager = LinearLayoutManager(context)
         rv_article.adapter = articleAdapter
+        rv_article.showShimmerAdapter()
 
         treeAdapter.setNodeClickListener { id, name ->
 
@@ -134,8 +135,6 @@ class ArticleFragment : BaseFragment() {
             var item = adapter.data[position] as Article
             Logger.i("articleAdapter onClick$position")
             ArticleContentActivity.start(item.link,mContext)
-
-
         }
     }
 
@@ -173,12 +172,14 @@ class ArticleFragment : BaseFragment() {
                     articles.observe(this@ArticleFragment, Observer {
                         isErr = false
                         articleAdapter.setNewData(it?.datas!!)
+                        rv_article.hideShimmerAdapter()
                     })
 
                     addArticles.observe(this@ArticleFragment, Observer {
                         isErr = false
                         articleAdapter.addData(it?.datas!!)
                         articleAdapter.loadMoreComplete()
+                        rv_article.hideShimmerAdapter()
                     })
 
                     isError.observe(this@ArticleFragment, Observer {

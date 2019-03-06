@@ -15,5 +15,10 @@
     <string name="article_author">作者</string>
     <string name="article_tag">分类</string>
     <string name="article_time">时间</string>
+    
+    <!--视频顶部导航栏-->
+    <string name="video_find">发现</string>
+    <string name="video_recommend">推荐</string>
+    <string name="video_daily">日报</string>
 
 </resources>

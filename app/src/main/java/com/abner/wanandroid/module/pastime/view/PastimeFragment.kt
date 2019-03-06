@@ -10,6 +10,7 @@ import com.abner.wanandroid.module.pastime.adapter.GirlAdapter
 import com.abner.wanandroid.module.pastime.vm.PastimeVm
 import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.fragment_pastime.*
+import java.util.concurrent.Executors
 
 /**
  *
@@ -29,6 +30,8 @@ class PastimeFragment: BaseFragment() {
         rv_girl.layoutManager = GridLayoutManager(mContext, 2)
         adapter = GirlAdapter()
         rv_girl.adapter = adapter
+
+        rv_girl.showShimmerAdapter()
     }
 
     override fun initViewModel(savedInstanceState: Bundle?) {
@@ -38,6 +41,7 @@ class PastimeFragment: BaseFragment() {
                 .apply {
                     girls.observe(this@PastimeFragment, Observer {
                         adapter.setNewData(it)
+                        rv_girl.hideShimmerAdapter()
                     })
                 }
     }

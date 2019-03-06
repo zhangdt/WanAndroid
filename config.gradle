@@ -24,7 +24,7 @@ ext {
             androidXCardView    : "androidx.cardview:cardview:${androidXVersion}",
             androidXKTX         : "androidx.core:core-ktx:${androidXVersion}",
             androidXMultidex    : 'androidx.multidex:multidex:2.0.0',
-            androidXCL          : 'androidx.constraintlayout:constraintlayout:1.1.2'
+            androidXCL          : 'androidx.constraintlayout:constraintlayout:1.1.3'
 
     ]
 }

@@ -28,18 +28,20 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.cooltechworks.views.shimmer.ShimmerRecyclerView
             android:id="@+id/rv_article"
             android:layout_width="match_parent"
+            app:shimmer_demo_shimmer_color="#000000"
+            app:shimmer_demo_layout="@layout/item_article_shimmer"
             android:layout_height="match_parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/article_rv"
+        <com.cooltechworks.views.shimmer.ShimmerRecyclerView
+            android:id="@+id/rv_root"
             android:layout_gravity="left"
             android:background="#ffffff"
             android:layout_width="220dp"
             android:layout_height="match_parent">
-        </androidx.recyclerview.widget.RecyclerView>
+        </com.cooltechworks.views.shimmer.ShimmerRecyclerView>
 
     </androidx.drawerlayout.widget.DrawerLayout>
 

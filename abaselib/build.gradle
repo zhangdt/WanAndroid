@@ -52,17 +52,17 @@ dependencies {
     //日记库
     api 'com.orhanobut:logger:2.2.0'
 
-    def lifecycle_version = "1.1.1"
     //google 的组件库
+    def lifecycle_version = "1.1.1"
+
     api "android.arch.lifecycle:runtime:$lifecycle_version"
     api "android.arch.lifecycle:extensions:$lifecycle_version"
     annotationProcessor "android.arch.lifecycle:compiler:$lifecycle_version"
 
     def room_version = "1.1.1"
     api "android.arch.persistence.room:runtime:$room_version"
-   // optional - RxJava support for Room
+    // optional - RxJava support for Room
     implementation "android.arch.persistence.room:rxjava2:$room_version"
-
 
     // rx
     api 'io.reactivex.rxjava2:rxjava:2.2.1'
@@ -109,6 +109,9 @@ dependencies {
 
     //第三方webview
     api 'com.just.agentweb:agentweb:4.0.2'
+
+    //骨架图
+    api 'com.github.sharish:ShimmerRecyclerView:v1.3'
 
 
 }

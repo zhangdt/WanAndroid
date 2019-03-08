@@ -14,7 +14,7 @@ import com.chad.library.adapter.base.entity.MultiItemEntity
  * @author zhangduntai
  * @date 2019/1/15
  */
-class TreeRootAdapter : BaseMultiItemQuickAdapter<MultiItemEntity, BaseViewHolder>{
+class TreeRootAdapter :BaseMultiItemQuickAdapter <MultiItemEntity, BaseViewHolder>{
     val TYPE_ROOT = 0
     val TYPE_NODE = 1
     lateinit var _nodeClickListener: (Int, String) -> Unit

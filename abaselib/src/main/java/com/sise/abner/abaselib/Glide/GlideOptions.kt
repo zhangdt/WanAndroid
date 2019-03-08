@@ -8,9 +8,9 @@ import com.sise.abner.abaselib.R
 /**
  * Created by Abner on 2017/12/18.
  */
-class GlideOptions {
+ class GlideOptions {
     companion object {
-        fun getCircleOptions(context: Context):RequestOptions
+         fun getCircleOptions(context: Context):RequestOptions
         {
             return RequestOptions()
                     .centerCrop()
@@ -19,6 +19,18 @@ class GlideOptions {
                     .priority(Priority.HIGH)
                     .transform(GlideCircleTransform(context))
         }
+
+        fun getCircleOptions(context: Context,radius:Int):RequestOptions
+        {
+            return RequestOptions()
+                    .centerCrop()
+//                    .placeholder(R.)
+//                    .error(R.mipmap.lodefailed)
+                    .priority(Priority.HIGH)
+                    .transform(GlideCircleTransform(context,radius))
+        }
+
+
 
         fun  getGSOptions(context: Context):RequestOptions
         {

@@ -3,6 +3,7 @@ package com.abner.wanandroid.module.video.view
 import android.os.Bundle
 import com.abner.wanandroid.R
 import com.abner.wanandroid.base.BaseFragment
+import com.abner.wanandroid.module.video.bean.EyepetizerIndexTab
 
 /**
  *
@@ -11,6 +12,12 @@ import com.abner.wanandroid.base.BaseFragment
  * @date 2019/3/6
  */
 class VideoFindFragment :BaseFragment() {
+
+    lateinit var tabinfo:EyepetizerIndexTab.TabInfoBean.TabListBean
+    fun setTabInfo(tabinfo: EyepetizerIndexTab.TabInfoBean.TabListBean){
+        this.tabinfo = tabinfo
+    }
+
     override fun onVisible() {
     }
 

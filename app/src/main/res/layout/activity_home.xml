@@ -16,7 +16,7 @@
     <com.sise.abner.abaselib.View.NoShiftBottomNavigationView
         android:id="@+id/home_bnv"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="48dp"
         android:background="@color/gray"
         android:elevation="8dp"
         app:itemIconTint="@drawable/bottom_bar_tint_list"

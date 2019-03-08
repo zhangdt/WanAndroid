@@ -30,11 +30,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField 'String', 'BASE_URL', "\"" + BASE_URL + "\""
             buildConfigField 'String', 'GANK_URL', "\"" + GANK_URL + "\""
+            buildConfigField 'String', 'EYE_URL', "\"" + EYE_URL + "\""
             buildConfigField 'boolean', 'ISDEBUG', 'false'
         }
         debug {
             buildConfigField 'String', 'BASE_URL', "\"" + BASE_URL + "\""
             buildConfigField 'String', 'GANK_URL', "\"" + GANK_URL + "\""
+            buildConfigField 'String', 'EYE_URL', "\"" + EYE_URL + "\""
             buildConfigField 'boolean', 'ISDEBUG',  'true'
         }
     }
@@ -48,7 +50,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 //    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-
     api project(':abaselib')
+
+
 }

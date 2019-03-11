@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sise.abner.abaselib.View.RoundAngleImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/iv_pic"
+    android:layout_width="match_parent"
+    android:layout_height="190dp"
+    android:scaleType="center"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginTop="8dp">
+
+</com.sise.abner.abaselib.View.RoundAngleImageView>

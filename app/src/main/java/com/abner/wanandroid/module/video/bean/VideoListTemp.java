@@ -129,9 +129,14 @@ public class VideoListTemp {
             switch (type) {
                 case "textCard":
                     return 0;
-
                 case "followCard":
                     return 1;
+                case "squareCardCollection":
+                    return 2;
+                case "videoSmallCard":
+                    return 3;
+                case "banner":
+                    return 4;
             }
             return 0;
         }

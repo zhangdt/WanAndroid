@@ -1,6 +1,7 @@
 package com.abner.wanandroid.module.video.view
 
 import android.os.Bundle
+import android.os.SystemClock
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -31,6 +32,8 @@ class VideoFragment : BaseFragment() {
     override fun initView(args: Bundle?) {
 //        vp_video.adapter =
         eyeVm.getIndexTabInfo()
+
+        SystemClock.sleep(10000)
 
 
     }

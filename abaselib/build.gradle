@@ -79,9 +79,6 @@ dependencies {
     api 'com.squareup.okhttp3:okhttp:3.11.0'
     api 'com.squareup.okhttp3:logging-interceptor:3.10.0'
 //    compile 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
-    //stetho  用来调试
-//    api 'com.facebook.stetho:stetho:1.3.1'
-//    api 'com.facebook.stetho:stetho-okhttp3:1.3.1'
     // Glide
     api 'com.github.bumptech.glide:glide:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
@@ -90,9 +87,12 @@ dependencies {
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
     //banner
     api 'com.youth.banner:banner:1.4.10'  //最新版本
-    //leakcanary
+    //leakcanary  检查内存泄漏
     debugApi 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseApi 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+    //blockcanary  检测卡顿
+     debugApi 'com.github.markzhai:blockcanary-android:1.5.0'
+     releaseApi 'com.github.markzhai:blockcanary-no-op:1.5.0'
 
 //    compile project(':calendarview')
     api 'com.google.zxing:core:3.3.0'
@@ -113,6 +113,8 @@ dependencies {
     //骨架图
     api 'com.github.sharish:ShimmerRecyclerView:v1.3'
 
+    // moshi  json 转换  比gson更快
+    api 'com.squareup.moshi:moshi-kotlin:1.8.0'
 
 
 

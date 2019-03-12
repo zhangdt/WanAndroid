@@ -39,6 +39,7 @@ public class VideoAdapter extends BaseMultiItemQuickAdapter<VideoListTemp.ItemLi
     final int BRIEF_CARD= 6;
     final int COLUM_CARDLIST=7;
 
+
     public VideoAdapter(List<VideoListTemp.ItemListBean> data) {
         super(data);
         addItemType(TEXT_CARD, R.layout.item_text_card);
@@ -75,7 +76,7 @@ public class VideoAdapter extends BaseMultiItemQuickAdapter<VideoListTemp.ItemLi
                 List<View> followCards = new ArrayList<>();
 
                 for (VideoListTemp.ItemListBean itemListBean :squareCardCollection.getItemList()){
-                    FollowCard followCard1 = gson.fromJson(itemListBean.getData(),FollowCard.class);
+                    FollowCard followCard1 = gson.fromJson(itemListBean.getData(),FollowCard.class); //太耗时
                     View view = View.inflate(mContext,R.layout.item_follow_card,null);
 
                     Glide.with(mContext).load(followCard1.getContent().getData().getCover().getFeed()).into((ImageView)view.findViewById(R.id.iv_follow_homepage));

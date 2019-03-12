@@ -4,6 +4,10 @@ import com.sise.abner.abaselib.base.BaseApp
 import com.sise.abner.abaselib.net.RetrofitClient
 import com.sise.abner.abaselib.util.LoggingUtil
 import com.squareup.leakcanary.LeakCanary
+import com.sise.abner.abaselib.base.AppBlockCanaryContext
+import com.github.moduth.blockcanary.BlockCanary
+
+
 
 /**
  *
@@ -42,5 +46,6 @@ class App: BaseApp() {
             return
         }
         LeakCanary.install(this)
+//        BlockCanary.install(this, AppBlockCanaryContext()).start()
     }
 }

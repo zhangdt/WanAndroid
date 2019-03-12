@@ -32,10 +32,6 @@ class VideoFragment : BaseFragment() {
     override fun initView(args: Bundle?) {
 //        vp_video.adapter =
         eyeVm.getIndexTabInfo()
-
-        SystemClock.sleep(10000)
-
-
     }
 
     override fun initViewModel(savedInstanceState: Bundle?) {

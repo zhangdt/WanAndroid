@@ -22,7 +22,8 @@ class RetrofitClient {
             val retrofit = Retrofit.Builder()
                     .baseUrl(config.baseUrl)
                     .client(OkHttpManger.getInstance(config.enableLog, config.timeOut))
-                    .addConverterFactory(GsonConverterFactory.create())
+//                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(MoshiConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build()
             retrofitFactory[config.baseUrl] = retrofit

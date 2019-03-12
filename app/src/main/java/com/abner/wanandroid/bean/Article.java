@@ -56,7 +56,7 @@ public class Article {
     private int userId;
     private int visible;
     private int zan;
-    private List<?> tags;
+    private List<Object> tags;
 
     public String getApkLink() {
         return apkLink;
@@ -234,11 +234,11 @@ public class Article {
         this.zan = zan;
     }
 
-    public List<?> getTags() {
+    public List<Object> getTags() {
         return tags;
     }
 
-    public void setTags(List<?> tags) {
+    public void setTags(List<Object> tags) {
         this.tags = tags;
     }
 }

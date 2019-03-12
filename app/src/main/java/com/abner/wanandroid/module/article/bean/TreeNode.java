@@ -29,7 +29,7 @@ public class TreeNode implements MultiItemEntity {
     private int parentChapterId;
     private boolean userControlSetTop;
     private int visible;
-    private List<?> children;
+    private List<String> children;
 
     public int getCourseId() {
         return courseId;
@@ -87,11 +87,11 @@ public class TreeNode implements MultiItemEntity {
         this.visible = visible;
     }
 
-    public List<?> getChildren() {
+    public List<String> getChildren() {
         return children;
     }
 
-    public void setChildren(List<?> children) {
+    public void setChildren(List<String> children) {
         this.children = children;
     }
 

@@ -20,7 +20,8 @@ class EyeVm(application: Application) : ABaseViewModel(application) {
     var eyeTabInfo: MutableLiveData<EyepetizerIndexTab> = MutableLiveData()
     var videos:MutableLiveData<VideoListTemp> = MutableLiveData()
     fun getIndexTabInfo() {
-        VideoRepository.getEyepetizerIndex().subscribe(
+        VideoRepository.getEyepetizerIndex()
+                .subscribe(
                 {
                     eyeTabInfo.value = it
                 },
@@ -33,8 +34,9 @@ class EyeVm(application: Application) : ABaseViewModel(application) {
     fun getVideoList(url: String) {
         var realUrl = url.substring(BuildConfig.EYE_URL.length,url.length);
         Logger.e(realUrl)
-        VideoRepository.getVideoList(realUrl).subscribe {
-            videos.value = it
-        }?.let { addSubscription(it) }
+//        VideoRepository.getVideoList(realUrl)
+//                .subscribe {
+//            videos.value = it
+//        }?.let { addSubscription(it) }
     }
 }

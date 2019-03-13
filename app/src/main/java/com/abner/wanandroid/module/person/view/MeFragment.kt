@@ -4,6 +4,9 @@ import android.os.Bundle
 import com.abner.wanandroid.R
 import com.abner.wanandroid.base.BaseFragment
 import com.orhanobut.logger.Logger
+import kotlinx.android.synthetic.main.fragment_me.*
+import android.content.Context
+
 
 /**
  *
@@ -17,6 +20,12 @@ class MeFragment: BaseFragment() {
     }
 
     override fun initView(args: Bundle?) {
+        tv_person.setOnClickListener {
+            val preferences = mContext.getSharedPreferences("language", Context.MODE_PRIVATE)
+            val editor = preferences.edit()
+            editor.putString("language", "zh")
+            editor.apply()
+        }
     }
 
     override fun initViewModel(savedInstanceState: Bundle?) {

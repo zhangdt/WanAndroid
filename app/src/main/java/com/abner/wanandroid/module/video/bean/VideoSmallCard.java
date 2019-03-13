@@ -97,8 +97,8 @@ public class VideoSmallCard {
     private Object src;
     private List<TagsBean> tags;
     private List<PlayInfoBean> playInfo;
-    private List<?> labelList;
-    private List<?> subtitles;
+    private List<Object> labelList;
+    private List<Object> subtitles;
 
     public String getDataType() {
         return dataType;
@@ -436,19 +436,19 @@ public class VideoSmallCard {
         this.playInfo = playInfo;
     }
 
-    public List<?> getLabelList() {
+    public List<Object> getLabelList() {
         return labelList;
     }
 
-    public void setLabelList(List<?> labelList) {
+    public void setLabelList(List<Object> labelList) {
         this.labelList = labelList;
     }
 
-    public List<?> getSubtitles() {
+    public List<Object> getSubtitles() {
         return subtitles;
     }
 
-    public void setSubtitles(List<?> subtitles) {
+    public void setSubtitles(List<Object> subtitles) {
         this.subtitles = subtitles;
     }
 

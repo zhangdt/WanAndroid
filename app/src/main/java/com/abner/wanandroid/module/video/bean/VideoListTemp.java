@@ -79,7 +79,7 @@ public class VideoListTemp {
          */
 
         private String type;
-        private JsonObject data;
+        private Object data;
         private Object tag;
         private int id;
         private int adIndex;
@@ -92,11 +92,11 @@ public class VideoListTemp {
             this.type = type;
         }
 
-        public JsonObject getData() {
+        public Object getData() {
             return data;
         }
 
-        public void setData(JsonObject data) {
+        public void setData(Object data) {
             this.data = data;
         }
 
@@ -136,6 +136,8 @@ public class VideoListTemp {
                 case "videoSmallCard":
                     return 3;
                 case "banner":
+                    return 4;
+                case "banner2":
                     return 4;
             }
             return 0;

@@ -34,9 +34,9 @@ class EyeVm(application: Application) : ABaseViewModel(application) {
     fun getVideoList(url: String) {
         var realUrl = url.substring(BuildConfig.EYE_URL.length,url.length);
         Logger.e(realUrl)
-//        VideoRepository.getVideoList(realUrl)
-//                .subscribe {
-//            videos.value = it
-//        }?.let { addSubscription(it) }
+        VideoRepository.getVideoList(realUrl)
+                .subscribe {
+            videos.value = it
+        }?.let { addSubscription(it) }
     }
 }

@@ -40,8 +40,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_title"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/vp_follow_card"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_follow_card"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_marginTop="8dp"

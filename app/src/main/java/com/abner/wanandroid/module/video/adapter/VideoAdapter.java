@@ -25,6 +25,8 @@ import com.squareup.moshi.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 
@@ -47,6 +49,7 @@ public class VideoAdapter extends BaseMultiItemQuickAdapter<VideoListTemp.ItemLi
     JsonAdapter<SquareCardCollection> squareCardCollectionJsonAdapter = moshi.adapter(SquareCardCollection.class);
     JsonAdapter<VideoSmallCard> videoSmallCardJsonAdapter = moshi.adapter(VideoSmallCard.class);
     JsonAdapter<Banner> bannerJsonAdapter = moshi.adapter(Banner.class);
+    FollowCardAdapter adapter = new FollowCardAdapter();
 
     public VideoAdapter(List<VideoListTemp.ItemListBean> data) {
         super(data);
@@ -77,28 +80,30 @@ public class VideoAdapter extends BaseMultiItemQuickAdapter<VideoListTemp.ItemLi
                 helper.setText(R.id.tv_type, followCard.getHeader().getTitle() + " / #" + followCard.getContent().getData().getCategory());
                 break;
             case SQUARE_CARD_COLLECTION:
-
-
                 SquareCardCollection squareCardCollection = squareCardCollectionJsonAdapter.fromJsonValue(item.getData());
                 helper.setText(R.id.tv_title,squareCardCollection.getHeader().getTitle())
                         .setText(R.id.tv_date,squareCardCollection.getHeader().getSubTitle());
-                ViewPager viewPager = helper.getView(R.id.vp_follow_card);
-                List<View> followCards = new ArrayList<>();
-
-                for (VideoListTemp.ItemListBean itemListBean :squareCardCollection.getItemList()){
-
-                    FollowCard followCard1 = followCardJsonAdapter.fromJsonValue(itemListBean.getData());
-//                    FollowCard followCard1 = gson.fromJson(itemListBean.getData(),FollowCard.class); //太耗时
-                    View view = View.inflate(mContext,R.layout.item_follow_card,null);
-
-                    Glide.with(mContext).load(followCard1.getContent().getData().getCover().getFeed()).into((ImageView)view.findViewById(R.id.iv_follow_homepage));
-                    Glide.with(mContext).load(followCard1.getHeader().getIcon()).apply(GlideOptions.Companion.getCircleOptions(mContext)).into((ImageView) view.findViewById(R.id.iv_icon));
-                    ((TextView)view.findViewById(R.id.tv_title)).setText(followCard1.getContent().getData().getTitle());
-                    ((TextView)view.findViewById(R.id.tv_type)).setText(followCard1.getHeader().getTitle() + " / #" + followCard1.getContent().getData().getCategory());
-
-                    followCards.add(view);
-                }
-                viewPager.setAdapter(new FollowCardAdapter(followCards));
+                RecyclerView recyclerView = helper.getView(R.id.rv_follow_card);
+                recyclerView.setLayoutManager(new LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false));
+                recyclerView.setAdapter(adapter);
+                adapter.setNewData(squareCardCollection.getItemList());
+//                ViewPager viewPager = helper.getView(R.id.vp_follow_card);
+//                List<View> followCards = new ArrayList<>();
+//
+//                for (VideoListTemp.ItemListBean itemListBean :squareCardCollection.getItemList()){
+//
+//                    FollowCard followCard1 = followCardJsonAdapter.fromJsonValue(itemListBean.getData());
+////                    FollowCard followCard1 = gson.fromJson(itemListBean.getData(),FollowCard.class); //太耗时
+//                    View view = View.inflate(mContext,R.layout.item_follow_card,null);
+//
+//                    Glide.with(mContext).load(followCard1.getContent().getData().getCover().getFeed()).into((ImageView)view.findViewById(R.id.iv_follow_homepage));
+//                    Glide.with(mContext).load(followCard1.getHeader().getIcon()).apply(GlideOptions.Companion.getCircleOptions(mContext)).into((ImageView) view.findViewById(R.id.iv_icon));
+//                    ((TextView)view.findViewById(R.id.tv_title)).setText(followCard1.getContent().getData().getTitle());
+//                    ((TextView)view.findViewById(R.id.tv_type)).setText(followCard1.getHeader().getTitle() + " / #" + followCard1.getContent().getData().getCategory());
+//
+//                    followCards.add(view);
+//                }
+//                viewPager.setAdapter(new FollowCardAdapter(followCards));
                 break;
 
             case VIDEO_SMALL_CARD:

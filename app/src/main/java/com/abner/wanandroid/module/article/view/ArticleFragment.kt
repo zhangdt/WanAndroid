@@ -34,6 +34,8 @@ import com.just.agentweb.AgentWeb
  * @date 2019/1/14
  */
 class ArticleFragment : BaseFragment() {
+    override fun onLoadData() {
+    }
 
     var _onDrawerListener: (Boolean) -> Unit = {}
     lateinit var treeAdapter: TreeRootAdapter

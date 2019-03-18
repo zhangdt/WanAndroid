@@ -21,6 +21,8 @@ import kotlinx.android.synthetic.main.fragment_video.*
  * @date 2019/1/14
  */
 class VideoFragment : BaseFragment() {
+
+
     lateinit var mVideoFindFragment: VideoFindFragment
     lateinit var mVideoRecommendFragment: VideoRecommendFragment
     lateinit var mVideoDailyFragment: VideoDailyFragment
@@ -29,9 +31,13 @@ class VideoFragment : BaseFragment() {
         Logger.i("onVisible")
     }
 
+    override fun onLoadData() {
+        eyeVm.getIndexTabInfo()
+    }
+
     override fun initView(args: Bundle?) {
 //        vp_video.adapter =
-        eyeVm.getIndexTabInfo()
+
     }
 
     override fun initViewModel(savedInstanceState: Bundle?) {
@@ -65,7 +71,8 @@ class VideoFragment : BaseFragment() {
         titles.add(eyeTabInfo.tabInfo.tabList[1].name)
         titles.add(eyeTabInfo.tabInfo.tabList[2].name)
 
-        vp_video.adapter = VideoVpAdapter(fragments, titles, this!!.fragmentManager!!)
+        vp_video.adapter = VideoVpAdapter(fragments, titles, this.fragmentManager!!)
+        vp_video.offscreenPageLimit = 3
 
     }
 }

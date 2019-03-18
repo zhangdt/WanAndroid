@@ -15,6 +15,9 @@ import android.content.Context
  * @date 2019/1/14
  */
 class MeFragment: BaseFragment() {
+    override fun onLoadData() {
+    }
+
     override fun onVisible() {
         Logger.i("onVisible")
     }

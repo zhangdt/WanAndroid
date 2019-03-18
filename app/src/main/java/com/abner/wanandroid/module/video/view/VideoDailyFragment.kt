@@ -19,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_video_daily.*
  */
 class VideoDailyFragment :BaseFragment() {
 
+
     lateinit var eyeVm:EyeVm
     lateinit var adpter:VideoAdapter
 
@@ -28,9 +29,12 @@ class VideoDailyFragment :BaseFragment() {
     }
     override fun onVisible() {
     }
+    override fun onLoadData() {
+        eyeVm.getVideoList(tabinfo.apiUrl)
+    }
 
     override fun initView(args: Bundle?) {
-        eyeVm.getVideoList(tabinfo.apiUrl)
+
         rv_video.layoutManager = LinearLayoutManager(mContext)
 
     }

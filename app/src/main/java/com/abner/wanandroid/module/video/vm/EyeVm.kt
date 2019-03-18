@@ -24,10 +24,11 @@ class EyeVm(application: Application) : ABaseViewModel(application) {
                 .subscribe(
                 {
                     eyeTabInfo.value = it
-                },
-                {
-
                 }
+//                        ,
+//                {
+//                    Logger.e(it.message!!)
+//                }
         )?.let { addSubscription(it) }
     }
 

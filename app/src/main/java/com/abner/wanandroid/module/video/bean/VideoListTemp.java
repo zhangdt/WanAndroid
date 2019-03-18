@@ -139,6 +139,12 @@ public class VideoListTemp {
                     return 4;
                 case "banner2":
                     return 4;
+                case "briefCard":
+                    return 5;
+                case "horizontalScrollCard":
+                    return 6;
+                case "columnCardList":
+                    return 7;
             }
             return 0;
         }

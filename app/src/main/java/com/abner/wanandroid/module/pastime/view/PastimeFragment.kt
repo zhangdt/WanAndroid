@@ -19,6 +19,9 @@ import java.util.concurrent.Executors
  * @date 2019/1/14
  */
 class PastimeFragment: BaseFragment() {
+    override fun onLoadData() {
+    }
+
     lateinit var pastimeVm:PastimeVm
     lateinit var adapter:GirlAdapter
     override fun onVisible() {

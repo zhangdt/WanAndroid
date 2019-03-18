@@ -12,6 +12,9 @@ import com.orhanobut.logger.Logger
  * @date 2019/1/14
  */
 class MusicFragment: BaseFragment() {
+    override fun onLoadData() {
+    }
+
     override fun onVisible() {
         Logger.i("onVisible")
     }
